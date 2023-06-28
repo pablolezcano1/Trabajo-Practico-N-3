@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<body>
+    <h1>Lista de Tareas</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>
+                <a href="/edit/{{ task.id }}">Editar</a>
+                <a href="/delete/{{ task.id }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/create">Crear nueva tarea</a>
+</body>
+
+{% endblock %}
